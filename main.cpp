@@ -1,54 +1,30 @@
 #include <iostream>
-#include <ctime>
-
-
 using namespace std;
 int main()
 {
-    srand(time(0));
-    setlocale(LC_ALL, "Russian");
-    int n = 4;
-    int max_i, max = 0;
-    int min_i, min = 0;
-    int** matr = new int* [n];
-    for (int i = 0; i < n; i++)
-        matr[i] = new int[n];
-
-    for (int i = 0; i < n; i++)
-    {
-        for (int k = 0; k < n; k++)
-        {
-            matr[i][k] = rand() / 1000;
-            cout << matr[i][k] << " ";
-        }
-        cout << endl;
-    }
-
-    int* temp = new int[n];
-    for (int k = 0; k < n; k++)
-    {
-        for (int i = k; i < n; i++)
-        {
-            if (matr[i][k] > max) 
-            {
-                max = matr[i][k];
-                max_i = i;
-            }
-            if (matr[i][k] < min)
-            {
-                min = matr[i][k];
-                min_i = i;
-            }
-        }
-        while (matr[k] != -858993460);
-        cout << endl;
-        k = 0;
-        cout << "Номер строки: " << max_i << endl;
-        cout << "Номер строки: " << min_i << endl;
-
-    }
-
-    cout << endl;
-    system("pause");
-    return 0;
+	int array;
+	int max, max_i, max_j, min, min_i, min_j;
+	max,min = array[0][0];
+	max_i,min_i = 0;							
+	max_j,min_j = 0;
+	int N, M;
+	for (int i = 0; i < N; i++) {		
+		for (int j = 0; j < M; j++) {	
+			if (array[i][j] > max) {	
+				max = array[i][j];		
+				max_i = i;				
+				max_j = j;
+			}
+			if (array[i][j] < min)
+			{
+				min = array[i][j];
+				min_i = i;
+				min_j = j;
+			}
+		}
+	}
+	cout << "   Максимальний елемент:  " << max << endl;
+	cout << "   Він знаходиться у  " << max_i + 1 << " рядку та " << max_j + 1 << " стовпці" << endl;
+	cout << "   Максимальний елемент:  " << min << endl;
+	cout << "   Він знаходиться у  " << min_i + 1 << " рядку та " << min_j + 1 << " стовпці" << endl;
 }
